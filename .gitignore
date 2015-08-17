@@ -13,3 +13,8 @@ StereoCalibrationV1/stereo_calib_kitti.xml
 StereoCalibrationV1/calibration_8_15 - 副本 (2).txt
 StereoCalibrationV1/calibration_8_16.txt
 StereoCalibrationV1/calibration_8_15 - 副本.txt
+*.tlog
+*.pdb
+*.obj
+*.exe
+StereoCalibrationV1/calibration_08_17.txt
