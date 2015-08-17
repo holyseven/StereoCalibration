@@ -18,7 +18,6 @@ void parse(string &cornerDataInputFileName, string &calibResultOutputFileName,
 
 
 int main(){
-
 	int boardSize1, boardSize2;
 	float squareSize;//mm
 	string cornerDataFileName, calibFileName;

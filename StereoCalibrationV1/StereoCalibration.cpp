@@ -315,7 +315,8 @@ void StereoCalibration::savedInStruct(){
 	
 	calibData.S_rect_00[0] = validRoi[0].width, calibData.S_rect_00[1] = validRoi[0].height;
 	//S_rect_01 is the same as S_rect_00
-	calibData.S_rect_01[0] = validRoi[0].width, calibData.S_rect_01[1] = validRoi[0].height;
+	//changed to not same 17/08/2015
+	calibData.S_rect_01[0] = validRoi[1].width, calibData.S_rect_01[1] = validRoi[1].height;
 
 	memcpy(calibData.T_01, (double*)T.data, sizeof(calibData.T_01));
 
