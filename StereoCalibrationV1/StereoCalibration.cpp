@@ -102,7 +102,7 @@ void StereoCalibration::readimagePointsFromMatlab(const char* fileName){
 		cvtColor(listMat_good[1][indexImage], cimg, CV_GRAY2BGR);
 		drawChessboardCorners(cimg, boardSize, imagePoints[1][indexImage], true);
 		imshow("corners_right", cimg);
-		waitKey(10);
+		waitKey(0);
 	}
 
 	useMatlabDetectResult = true;
@@ -179,6 +179,7 @@ void StereoCalibration::runCalib(){
 		cameraMatrix[0], distCoeffs[0],
 		cameraMatrix[1], distCoeffs[1],
 		imageSize, R, T, E, F,
+		//CALIB_USE_INTRINSIC_GUESS + CV_CALIB_FIX_K1);
 		CV_CALIB_FIX_INTRINSIC);
 	cout << "done with RMS error=" << rms << endl;
 	
@@ -195,8 +196,8 @@ void StereoCalibration::showRectifyImage(){
 	//imageSize = listMat[0][0].size();
 
 	//Precompute maps for cv::remap()
-	initUndistortRectifyMap(cameraMatrix[0], distCoeffs[0], R1, P1, imageSize, CV_16SC2, rmap[0][0], rmap[0][1]);
-	initUndistortRectifyMap(cameraMatrix[1], distCoeffs[1], R2, P2, imageSize, CV_16SC2, rmap[1][0], rmap[1][1]);
+	initUndistortRectifyMap(cameraMatrix[0], distCoeffs[0], R1, P1, imageSize, CV_32FC1, rmap[0][0], rmap[0][1]);
+	initUndistortRectifyMap(cameraMatrix[1], distCoeffs[1], R2, P2, imageSize, CV_32FC1, rmap[1][0], rmap[1][1]);
 	
 	//
 	Mat canvas;

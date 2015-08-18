@@ -9,6 +9,7 @@ void parse(string &cornerDataInputFileName, string &calibResultOutputFileName,
 	int &boardSize1, int &boardSize2, float &squareSize)
 {
 	ifstream in("config.txt");
+	if (!in.is_open()) return;
 	in >> cornerDataInputFileName;
 	in >> calibResultOutputFileName;
 	in >> boardSize1 >> boardSize2;
@@ -18,9 +19,11 @@ void parse(string &cornerDataInputFileName, string &calibResultOutputFileName,
 
 
 int main(){
-	int boardSize1, boardSize2;
-	float squareSize;//mm
-	string cornerDataFileName, calibFileName;
+	//default values
+	string cornerDataFileName = "cornerData.txt", calibFileName = "calibration_08_17.txt";
+	int boardSize1 = 6, boardSize2 = 9;
+	float squareSize = 100;//mm
+	
 
 	//read information from config.txt
 	parse(cornerDataFileName, calibFileName, boardSize1, boardSize2,
